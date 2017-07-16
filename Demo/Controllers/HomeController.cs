@@ -1,0 +1,61 @@
+using System.Collections.Generic;
+using System.IO;
+using System.Net.Http.Headers;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Demo.Controllers
+{
+    public class HomeController : Controller
+    {
+
+        private IHostingEnvironment hostingEnv;
+
+        public HomeController(IHostingEnvironment env)
+        {
+            this.hostingEnv = env;
+        }        
+        
+        [HttpGet]
+        [Route("")]
+        public IActionResult Index()
+        {
+
+            var webRoot = hostingEnv.WebRootPath;
+            // var imagePath = System.IO.Path.Combine(webRoot, "image.jpg");
+            var path = webRoot + "/images/Uploaded";
+            var files = Directory.GetFiles(path);
+            ViewBag.files = files;
+
+            ViewBag.Success = TempData["Success"];
+            return View();
+        }
+
+        [HttpPost]
+        [Route("UploadPhoto")]
+        public IActionResult UploadPhoto(IList<IFormFile> Images) {
+            
+            long size = 0;
+            var location = "";
+            System.Console.WriteLine("IMAGES: ", Images);
+
+            foreach(var file in Images) {
+                var filename = ContentDispositionHeaderValue
+                                .Parse(file.ContentDisposition)
+                                .FileName
+                                .Trim('"');
+                location = $@"/images/uploaded/{filename}";
+                filename = hostingEnv.WebRootPath + $@"\images\uploaded\{filename}";
+                size += file.Length;
+                using (FileStream fs = System.IO.File.Create(filename)){
+                file.CopyTo(fs);
+                fs.Flush();
+                }
+            }
+
+            TempData["Success"] = $"{Images.Count} files(s) uploaded successfuly!";
+            return RedirectToAction("Index");
+        }        
+    }
+}

@@ -1,0 +1,14 @@
+/*Write all of your CSS here*/
+
+body {
+    background-color: grey;
+}
+
+.container {
+    width: 450px;
+    background-color: white;
+    border-radius: 12px;
+    margin-top: 30px;
+    padding: 15px;
+}
+

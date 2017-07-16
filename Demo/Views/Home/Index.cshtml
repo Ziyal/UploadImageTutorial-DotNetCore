@@ -1,0 +1,30 @@
+<div class="container">
+    <h1>Upload Image Here</h1>
+    <hr>
+
+    <div class="upload_image">
+        <form asp-action="UploadPhoto"
+            asp-controller="Home"
+            method="post"
+            enctype="multipart/form-data">
+            <input type="file" name="Images" multiple>
+            <input type="submit" value="Upload Selected Files">
+        </form>
+    </div>
+
+
+</div>
+    @{
+        if(@ViewBag.Success != null) {
+            <h6 class="success_message alert alert-success">@ViewBag.Success</h6>
+        }
+    }
+
+
+<!--<img src="~/images/Uploaded/IMG_0004.jpg">-->
+
+@ViewBag.files[0]
+
+@foreach(var file in @ViewBag.files) {
+    <img src="@file">
+}
