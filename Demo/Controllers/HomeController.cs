@@ -22,11 +22,17 @@ namespace Demo.Controllers
         public IActionResult Index()
         {
 
-            var webRoot = hostingEnv.WebRootPath;
-            // var imagePath = System.IO.Path.Combine(webRoot, "image.jpg");
-            var path = webRoot + "/images/Uploaded";
-            var files = Directory.GetFiles(path);
-            ViewBag.files = files;
+
+            string webRootPath = hostingEnv.WebRootPath;
+
+            DirectoryInfo location = new DirectoryInfo(webRootPath + "/images/Uploaded");
+            // var imagePath = Server.MapPath("~/wwwroot/images/Uploaded");
+            var images = location.GetFiles();
+
+            // foreach(var file in location.GetFiles()) {
+            //     System.Console.WriteLine(file);
+            // }
+            ViewBag.files = images;
 
             ViewBag.Success = TempData["Success"];
             return View();
@@ -38,7 +44,6 @@ namespace Demo.Controllers
             
             long size = 0;
             var location = "";
-            System.Console.WriteLine("IMAGES: ", Images);
 
             foreach(var file in Images) {
                 var filename = ContentDispositionHeaderValue
