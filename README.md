@@ -2,7 +2,7 @@
 
 This tutorial will show you how to upload multiple files to your sever with ASP.NET Core.
 
-![Upload Demo](https://github.com/Ziyal/UploadImageTutorial-DotNetCore/blob/master/screenshots/demo.gif "Upload Demo")
+![Upload Demo](https://github.com/Ziyal/UploadImageTutorial-DotNetCore/blob/master/Screenshots/demo.gif "Upload Demo")
 
 
 ### Let's Get Started!
