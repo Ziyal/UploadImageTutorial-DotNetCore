@@ -1,8 +1,6 @@
-/*Write all of your CSS here*/
 * {
     font-family: 'Frank Ruhl Libre', sans-serif;
 }
-
 
 body {
     background: #37B9E9; /* For browsers that do not support gradients */
@@ -56,7 +54,6 @@ hr {
     margin-top: 30px;
     padding: 15px;
 }
-
 
 img {
     width: 200px;
