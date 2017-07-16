@@ -8,18 +8,21 @@ This tutorial will show you how to upload multiple files to your sever with ASP.
 
 In your controller inside your class we're going to create our hosting enviroment:
 
+    ```c#
     private IHostingEnvironment hostingEnv;
     
     public HomeController(IHostingEnvironment env)
         {
             this.hostingEnv = env;
-        }    
+        }
+    ```
 
 
 #### Add Upload Form
 
 In your .cshtml file we're going to create a form that will allow us to send our images to the controller: 
 
+    ```c#
     <form asp-action="UploadPhoto"
             asp-controller="Home"
             method="post"
@@ -29,6 +32,7 @@ In your .cshtml file we're going to create a form that will allow us to send our
 
         <input type="submit" value="Upload Selected Files" class="btn">
     </form>
+    ```
 
 **Notes:**
 
@@ -36,12 +40,13 @@ In your .cshtml file we're going to create a form that will allow us to send our
 
 + *asp-controller='Home'* is the name of the controller that the function is in.
 
-+ the *input type="file"* tells us what we're allowing in the form and adding multiple to the end allows us to choose more than one image to upload.
++ *input type="file"* tells us what we're allowing in the form and adding multiple to the end allows us to choose more than one image to upload.
 
 #### Create UploadPhoto Method
 
 Back in our contoller we're going to create a method that will save our images to our server and give us it's location to store in a database to reference later.
 
+    ```c#
     [HttpPost]
     [Route("UploadPhoto")]
     public IActionResult UploadPhoto(IList<IFormFile> Images) {
@@ -64,6 +69,7 @@ Back in our contoller we're going to create a method that will save our images t
 
         return RedirectToAction("Index");
     }  
+    ```
 
 **Notes:**
 
