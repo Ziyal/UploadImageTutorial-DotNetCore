@@ -8,31 +8,31 @@ This tutorial will show you how to upload multiple files to your sever with ASP.
 
 In your controller inside your class we're going to create our hosting enviroment:
 
-    ```cs
-    private IHostingEnvironment hostingEnv;
-    
-    public HomeController(IHostingEnvironment env)
-        {
-            this.hostingEnv = env;
-        }
-    ```
+```cs
+private IHostingEnvironment hostingEnv;
+
+public HomeController(IHostingEnvironment env)
+    {
+        this.hostingEnv = env;
+    }
+```
 
 
 #### Add Upload Form
 
 In your .cshtml file we're going to create a form that will allow us to send our images to the controller: 
 
-    ```cs
-    <form asp-action="UploadPhoto"
-            asp-controller="Home"
-            method="post"
-            enctype="multipart/form-data">
+```cs
+<form asp-action="UploadPhoto"
+        asp-controller="Home"
+        method="post"
+        enctype="multipart/form-data">
 
-        <input type="file" name="Images" multiple>
+    <input type="file" name="Images" multiple>
 
-        <input type="submit" value="Upload Selected Files" class="btn">
-    </form>
-    ```
+    <input type="submit" value="Upload Selected Files" class="btn">
+</form>
+```
 
 **Notes:**
 
@@ -46,30 +46,30 @@ In your .cshtml file we're going to create a form that will allow us to send our
 
 Back in our contoller we're going to create a method that will save our images to our server and give us it's location to store in a database to reference later.
 
-    ```cs
-    [HttpPost]
-    [Route("UploadPhoto")]
-    public IActionResult UploadPhoto(IList<IFormFile> Images) {
-        
-        long size = 0;
-        var location = "";
+```cs
+[HttpPost]
+[Route("UploadPhoto")]
+public IActionResult UploadPhoto(IList<IFormFile> Images) {
+    
+    long size = 0;
+    var location = "";
 
-        foreach(var file in Images) {
-            var filename = ContentDispositionHeaderValue
-                            .Parse(file.ContentDisposition)
-                            .FileName
-                            .Trim('"');
-            location = $@"/images/uploaded/{filename}";
-            filename = hostingEnv.WebRootPath + $@"\images\uploaded\{filename}";
-            using (FileStream fs = System.IO.File.Create(filename)){
-            file.CopyTo(fs);
-            fs.Flush();
-            }
+    foreach(var file in Images) {
+        var filename = ContentDispositionHeaderValue
+                        .Parse(file.ContentDisposition)
+                        .FileName
+                        .Trim('"');
+        location = $@"/images/uploaded/{filename}";
+        filename = hostingEnv.WebRootPath + $@"\images\uploaded\{filename}";
+        using (FileStream fs = System.IO.File.Create(filename)){
+        file.CopyTo(fs);
+        fs.Flush();
         }
+    }
 
-        return RedirectToAction("Index");
-    }  
-    ```
+    return RedirectToAction("Index");
+}  
+```
 
 **Notes:**
 
