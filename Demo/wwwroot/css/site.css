@@ -41,6 +41,10 @@ hr {
     margin: 10px 0px 20px 0px;
 }
 
+.submit {
+    margin-top: 15px;
+}
+
 .images {
     display: inline-block;
     vertical-align: top;
@@ -56,6 +60,12 @@ hr {
 
 img {
     width: 200px;
-    margin: 10px;
+    margin: 11px;
     display: inline-block;
 }
+
+.alert-success {
+    margin-bottom: 0px;
+    margin-top: 20px;
+}
+

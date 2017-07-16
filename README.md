@@ -2,6 +2,9 @@
 
 This tutorial will show you how to upload multiple files to your sever with ASP.NET Core.
 
+![Upload Demo](https://github.com/Ziyal/Gif-Land/blob/master/screenshots/demo.gif "Upload Demo")
+
+
 ### Let's Get Started!
 
 #### Create Hosting Enviroment
@@ -76,10 +79,12 @@ public IActionResult UploadPhoto(IList<IFormFile> Images) {
 + inside the loop our location variable is pointing to the folder we want our images to be stored in. Uploaded is the name of the folder I created to put them all in. This is also the variable you would want to store in your database to referance and display the image.
 
 
-#### Using Statments Used 
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Net.Http.Headers;
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.AspNetCore.Http;
-    using Microsoft.AspNetCore.Mvc;
+#### Using Statments Used
+```cs 
+using System.Collections.Generic;
+using System.IO;
+using System.Net.Http.Headers;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+```

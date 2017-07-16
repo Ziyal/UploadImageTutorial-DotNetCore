@@ -1,3 +1,7 @@
+@{
+    ViewData["Title"] = "Demo Page";
+}
+
 <div class="outer-container">    
     <div class="container">
         <h1>Upload Image Here</h1>
@@ -14,7 +18,7 @@
                     <span class="custom-file-control"></span>
                 </label>
                 
-                <input type="submit" value="Upload Selected Files" class="btn">
+                <input type="submit" value="Upload Selected Files" class="btn btn-default btn-block submit">
             </form>
         </div>
 
@@ -38,8 +42,9 @@
 </div>
 
 <script type="text/javascript">
-        $(function() {
+    $(function() {
 
-            $(".success_message").delay(1000).fadeOut("slow");
-        });
+        $(".success_message").delay(1000).fadeOut("slow");
+    });
+
 </script>
