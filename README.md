@@ -32,11 +32,11 @@ In your .cshtml file we're going to create a form that will allow us to send our
 
 **Notes:**
 
-⋅⋅* *asp-action='UploadPhoto'* is where we put the name ofthe method we want to send our images to.
++ *asp-action='UploadPhoto'* is where we put the name ofthe method we want to send our images to.
 
-⋅⋅* *asp-controller='Home'* is the name of the controller that the function is in.
++ *asp-controller='Home'* is the name of the controller that the function is in.
 
-⋅⋅* the *input type="file"* tells us what we're allowing in the form and adding multiple to the end allows us to choose more than one image to upload.
++ the *input type="file"* tells us what we're allowing in the form and adding multiple to the end allows us to choose more than one image to upload.
 
 #### Create UploadPhoto Method
 
@@ -67,7 +67,7 @@ Back in our contoller we're going to create a method that will save our images t
 
 **Notes:**
 
-⋅⋅* inside the loop our location variable is pointing to the folder we want our images to be stored in. Uploaded is the name of the folder I created to put them all in. This is also the variable you would want to store in your database to referance and display the image.
++ inside the loop our location variable is pointing to the folder we want our images to be stored in. Uploaded is the name of the folder I created to put them all in. This is also the variable you would want to store in your database to referance and display the image.
 
 
 #### Using Statments Used 
