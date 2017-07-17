@@ -1,4 +1,4 @@
-# .NET Core Image Upload Tutorial || CURRENTLY WIP
+# .NET Core Image Upload Tutorial
 
 This tutorial will show you how to upload multiple files to your sever with ASP.NET Core.
 
