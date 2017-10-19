@@ -8,13 +8,17 @@ This tutorial will show you how to upload multiple files to your sever with ASP.
 ## To Run the Demo:
 
 ```
-Demo is running on **ASP.NET Core v1.0**
+**Demo is running on _ASP.NET Core v1.0_**
+
+clone repo
 
 cd into repo
 
 cd into Demo
 
 dotnet restore
+
+dotnet run
 
 ```
 
@@ -54,7 +58,7 @@ In your .cshtml file we're going to create a form that will allow us to send our
 
 **Notes:**
 
-+ *asp-action='UploadPhoto'* is where we put the name ofthe method we want to send our images to.
++ *asp-action='UploadPhoto'* is where we put the name of the method we want to send our images to.
 
 + *asp-controller='Home'* is the name of the controller that the function is in.
 
