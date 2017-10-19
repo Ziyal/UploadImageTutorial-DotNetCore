@@ -39,7 +39,6 @@ namespace Demo.Controllers
         }
 
         [HttpPost]
-        [Route("UploadPhoto")]
         public IActionResult UploadPhoto(IList<IFormFile> Images) {
             
             long size = 0;
