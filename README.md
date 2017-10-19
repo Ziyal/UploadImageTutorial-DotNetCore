@@ -6,7 +6,7 @@ This tutorial will show you how to upload multiple files to your sever with ASP.
 
 
 ## To Run the Demo:
-Demo is running on __ASP.NET Core v1.0
+Demo is running on ASP.NET Core v1.0
 ```
 
 clone repo
